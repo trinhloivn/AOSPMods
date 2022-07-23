@@ -18,6 +18,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -44,6 +45,7 @@ public class Helpers {
         }
         Method[] ms = ourClass.getDeclaredMethods();
         log("Class: " + className);
+        log("extends: " + ourClass.getSuperclass().getName());
         log("Methods:");
 
         for(Method m : ms)
@@ -60,7 +62,7 @@ public class Helpers {
         Field[] fs = ourClass.getDeclaredFields();
         for(Field f: fs)
         {
-            log("\t\t" + f.getName() + "-" + f.getType().getName());
+            log("\t\t" + Modifier.toString(f.getModifiers()) + " " + f.getName() + "-" + f.getType().getName());
         }
         log("End dump");
     }

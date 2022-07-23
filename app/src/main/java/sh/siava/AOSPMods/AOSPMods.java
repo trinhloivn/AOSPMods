@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import de.robv.android.xposed.IXposedHookLoadPackage;
 import de.robv.android.xposed.XC_MethodHook;
 import de.robv.android.xposed.callbacks.XC_LoadPackage;
+import sh.siava.AOSPMods.Utils.Helpers;
 import sh.siava.AOSPMods.Utils.SystemUtils;
 import sh.siava.AOSPMods.allApps.overScrollDisabler;
 import sh.siava.AOSPMods.android.StatusbarSize;
@@ -57,10 +58,11 @@ public class AOSPMods implements IXposedHookLoadPackage{
 
     public AOSPMods()
     {
-        //region Mod list definition
-        modPacks.add(StatusbarMods.class);
-        modPacks.add(BackToKill.class);
         modPacks.add(BatteryStyleManager.class);
+        //region Mod list definition
+/*        modPacks.add(StatusbarMods.class);
+        modPacks.add(BackToKill.class);
+
         modPacks.add(FeatureFlagsMods.class);
         modPacks.add(KeyguardBottomArea.class);
         modPacks.add(GestureNavbarManager.class);
@@ -87,7 +89,7 @@ public class AOSPMods implements IXposedHookLoadPackage{
         modPacks.add(QSTileGrid.class);
         modPacks.add(easyUnlock.class);
         modPacks.add(screenRotation.class);
-        modPacks.add(CallVibrator.class);
+        modPacks.add(CallVibrator.class);*/
         //endregion
     }
     
@@ -95,7 +97,7 @@ public class AOSPMods implements IXposedHookLoadPackage{
     public void handleLoadPackage(XC_LoadPackage.LoadPackageParam lpparam) throws Throwable {
         isSecondProcess =  lpparam.processName.contains(":");
 
-        //        Helpers.dumpClass("android.app.Instrumentation", lpparam);
+                Helpers.dumpClass("com.android.systemui.battery.BatteryMeterView", lpparam);
     
         findAndHookMethod(Instrumentation.class, "newApplication", ClassLoader.class, String.class, Context.class, new XC_MethodHook() {
             @Override
