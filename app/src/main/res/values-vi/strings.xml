@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="carrier_text_mod_disabled">Văn bản của nhà cung cấp dịch vụ chưa thay đổi</string>
     <string name="power_menu_overlays_section">Chủ đề Menu nguồn</string>
     <string name="power_menu_overlays_title">Bật chủ đề sáng/tối trên Menu nguồn</string>
     <string name="power_menu_overlays_summary_on">Tùy chọn này cũng cho phép một số biểu tượng thú vị mới trên toàn hệ thống</string>
